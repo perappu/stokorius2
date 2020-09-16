@@ -9,7 +9,7 @@ PATH = 'content'
 
 TIMEZONE = 'America/Chicago'
 
-DEFAULT_LANG = 'English'
+DEFAULT_LANG = 'en'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -19,16 +19,50 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'https://getpelican.com/'),
-         ('Python.org', 'https://www.python.org/'),
-         ('Jinja2', 'https://palletsprojects.com/p/jinja/'),
-         ('You can modify those links in your config file', '#'),)
+#LINKS = [('Twitter', 'http://twitter.com/stokori')]
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = [('Twitter', 'http://twitter.com/stokori')]
 
 DEFAULT_PAGINATION = 5
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
+
+PLUGIN_PATHS = ['./plugins']
+PLUGINS = ['extract_toc','summary','clean_summary','thumbnailer']
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.codehilite': {'css_class': 'highlight'},
+        'markdown.extensions.extra': {},
+        'markdown.extensions.meta': {},
+    },
+    'output_format': 'html5',
+}
+
+ARTICLE_URL = "{category}/{slug}/"
+ARTICLE_SAVE_AS = "{category}/{slug}/index.html"
+
+PAGE_URL = '{slug}/'
+PAGE_SAVE_AS = '{slug}/index.html'
+
+CATEGORY_URL = "category/{slug}/"
+CATEGORY_SAVE_AS = "category/{slug}/index.html"
+
+TAG_URL = "tag/{slug}/"
+TAG_SAVE_AS = "tag/{slug}/index.html"
+
+ARCHIVES_URL = "archives/"
+ARCHIVES_SAVE_AS = 'archives/index.html'
+
+IMAGE_PATH = 'images'
+THUMBNAIL_DIR = 'thumbs'
+THUMBNAIL_KEEP_NAME = True
+THUMBNAIL_SIZES = {
+    'vertical': '200x?',
+    'horizontal': '?x300',
+    'square': '200x200'
+}
+
+# Theme Configuration
+THEME = 'theme/'
